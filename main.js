@@ -99,13 +99,15 @@ const icone = [
 	}
 ];
 
-const iconaEl = document.querySelector('.container');
+const iconaEl = document.getElementById('container');
 // ciclo le icone e ottengo 'family', 'prefix', 'name'
 //stampo gli elementi a schermo
 const icona = icone.forEach((icona) => {
     iconaEl.insertAdjacentHTML('beforeend', `
     <div class="card">
         <i class="${icona.family} ${icona.prefix}${icona.name}"></i>
+        <div>${icona.name}</div>
     </div> `)
-})
+});
+
 
