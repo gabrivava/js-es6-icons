@@ -121,7 +121,7 @@ function stampaEl(icone) {
         <i class="${icona.family} ${icona.prefix}${icona.name}" style="color: ${checkValue(icona)}"></i>
         <div>${icona.name}</div>
     </div> `)
-});
+})};
 // Milestone 2
 let iconeAnimali = icone.filter((icona) => {
     return icona.type === 'animal'
@@ -134,7 +134,8 @@ let iconeUser = icone.filter((icona) => {
 });
 //Milestone 3 
 //Creiamo una select con i tipi di icone e usiamola per filtrare le icone
-const select = document.querySelector('select').addEventListener('click', function () {
+let select = document.querySelector('select');
+select.addEventListener('click', function () {
     if (select.value === 'animal') {
         stampaEl(iconeAnimali)
     } else if (select.value === 'vegetable') {
