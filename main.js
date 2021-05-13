@@ -99,15 +99,28 @@ const icone = [
 	}
 ];
 
+// Coloriamo le icone per tipo
+function checkValue(icona) {
+    if (icona.type === 'animal') {
+        return 'blue'
+    } else if (icona.type === 'vegetable') {
+        return 'yellow'
+    } else if (icona.type === 'user'){
+        return 'purple'
+    }
+}
+
 const iconaEl = document.getElementById('container');
 // ciclo le icone e ottengo 'family', 'prefix', 'name'
 //stampo gli elementi a schermo
 const icona = icone.forEach((icona) => {
     iconaEl.insertAdjacentHTML('beforeend', `
     <div class="card">
-        <i class="${icona.family} ${icona.prefix}${icona.name}"></i>
+        <i class="${icona.family} ${icona.prefix}${icona.name}" style="color: ${checkValue(icona)}"></i>
         <div>${icona.name}</div>
     </div> `)
 });
+// Milestone 2
+
 
 
