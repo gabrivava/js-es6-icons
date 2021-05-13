@@ -111,6 +111,7 @@ function checkValue(icona) {
 };
 
 let iconaEl = document.getElementById('container');
+stampaEl(icone, iconaEl);
 // ciclo le icone e ottengo 'family', 'prefix', 'name'
 //stampo gli elementi a schermo
 function stampaEl(icone, el) {
