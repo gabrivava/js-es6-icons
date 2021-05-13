@@ -108,12 +108,14 @@ function checkValue(icona) {
     } else if (icona.type === 'user'){
         return 'purple'
     }
-}
+};
 
-const iconaEl = document.getElementById('container');
+let iconaEl = document.getElementById('container');
 // ciclo le icone e ottengo 'family', 'prefix', 'name'
 //stampo gli elementi a schermo
-const icona = icone.forEach((icona) => {
+function stampaEl(icone) {
+
+    icone.forEach((icona) => {
     iconaEl.insertAdjacentHTML('beforeend', `
     <div class="card">
         <i class="${icona.family} ${icona.prefix}${icona.name}" style="color: ${checkValue(icona)}"></i>
@@ -121,11 +123,6 @@ const icona = icone.forEach((icona) => {
     </div> `)
 });
 // Milestone 2
-
-//Milestone 3 
-//Creiamo una select con i tipi di icone e usiamola per filtrare le icone
-const select = document.querySelector('select');
-
 let iconeAnimali = icone.filter((icona) => {
     return icona.type === 'animal'
 });
@@ -135,16 +132,17 @@ let iconeVegetable = icone.filter((icona) => {
 let iconeUser = icone.filter((icona) => {
     return icona.type === 'user'
 });
-
-
-select.addEventListener('click', function () {
+//Milestone 3 
+//Creiamo una select con i tipi di icone e usiamola per filtrare le icone
+const select = document.querySelector('select').addEventListener('click', function () {
     if (select.value === 'animal') {
-        iconeAnimali.forEach((icona) => {
-            iconaEl.insertAdjacentHTML('beforeend', `
-            <div class="card">
-                <i class="${icona.family} ${icona.prefix}${icona.name}" style="color: ${checkValue(icona)}"></i>
-                <div>${icona.name}</div>
-            </div> `)
-        });
+        stampaEl(iconeAnimali)
+    } else if (select.value === 'vegetable') {
+        stampaEl(iconeVegetable)
+    } else if (select.value === 'user') {
+        stampaEl(iconeUser)
+    } else {
+        stampaEl(icone)
     }
-})
+});
+
