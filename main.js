@@ -120,8 +120,7 @@ function stampaEl(icone) {
     <div class="card">
         <i class="${icona.family} ${icona.prefix}${icona.name}" style="color: ${checkValue(icona)}"></i>
         <div>${icona.name}</div>
-    </div> `)
-})};
+    </div> `)})};
 // Milestone 2
 let iconeAnimali = icone.filter((icona) => {
     return icona.type === 'animal'
@@ -137,13 +136,13 @@ let iconeUser = icone.filter((icona) => {
 let select = document.querySelector('select');
 select.addEventListener('click', function () {
     if (select.value === 'animal') {
-        stampaEl(iconeAnimali)
+        iconaEl = stampaEl(iconeAnimali)
     } else if (select.value === 'vegetable') {
-        stampaEl(iconeVegetable)
+        iconaEl = stampaEl(iconeVegetable)
     } else if (select.value === 'user') {
-        stampaEl(iconeUser)
+        iconaEl = stampaEl(iconeUser)
     } else {
-        stampaEl(icone)
+        iconaEl = stampaEl(icone)
     }
 });
 
