@@ -122,5 +122,29 @@ const icona = icone.forEach((icona) => {
 });
 // Milestone 2
 
+//Milestone 3 
+//Creiamo una select con i tipi di icone e usiamola per filtrare le icone
+const select = document.querySelector('select');
+
+let iconeAnimali = icone.filter((icona) => {
+    return icona.type === 'animal'
+});
+let iconeVegetable = icone.filter((icona) => {
+    return icona.type === 'vegetable'
+});
+let iconeUser = icone.filter((icona) => {
+    return icona.type === 'user'
+});
 
 
+select.addEventListener('click', function () {
+    if (select.value === 'animal') {
+        iconeAnimali.forEach((icona) => {
+            iconaEl.insertAdjacentHTML('beforeend', `
+            <div class="card">
+                <i class="${icona.family} ${icona.prefix}${icona.name}" style="color: ${checkValue(icona)}"></i>
+                <div>${icona.name}</div>
+            </div> `)
+        });
+    }
+})
