@@ -104,7 +104,7 @@ function checkValue(icona) {
     if (icona.type === 'animal') {
         return 'blue'
     } else if (icona.type === 'vegetable') {
-        return 'yellow'
+        return 'orange'
     } else if (icona.type === 'user'){
         return 'purple'
     }
